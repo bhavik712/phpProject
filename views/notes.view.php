@@ -12,6 +12,8 @@
             </a>
         </li>
     <?php endforeach?>
+
+    <a href="/notes/create" class="text-black-500 mt-10 hover:text-blue-500 hover:underline ">Create New Note</a>
   </div>
 </main>
 <?php require('partials/foot.php')?>
