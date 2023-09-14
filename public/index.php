@@ -5,14 +5,27 @@
     // var_dump(BASE_PATH);
 
     require BASE_PATH. "core/functions.php";
-
     spl_autoload_register(function ($class){
 
         $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
         require basePath("{$class}.php");
     });
+
+
+
+    require basePath("routes.php");
+
+  
     
-    require basePath("core/router.php");
+
+   
+    
+
+
+
+
+
+    
 
     //  example of class 
     

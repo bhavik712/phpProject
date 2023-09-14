@@ -10,6 +10,7 @@
     <h3 class="text-xl text-blue-400 hover:underline"><?= $note['email']?></h3>
 
     <form class="mt-6" method='POST' >
+      <input type="hidden" name="_method" value="DELETE">
       <input type="hidden" name="id" value="<?= $note['note_id'] ?>">
       <button class="text-sm text-red-600">Delete</button>
     </form>

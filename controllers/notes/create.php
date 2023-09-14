@@ -1,9 +1,9 @@
 <?php
     use core\Database;
     use core\Validator;
-    $heading = "Create Note";
+    // $heading = "Create Note";
 
-    require basePath("core/Validator.php");
+    // require basePath("core/Validator.php");
     $config = require basePath('config.php');
     $db = new Database($config,'root','admin@123',PDO::FETCH_ASSOC);
 
