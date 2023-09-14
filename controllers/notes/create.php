@@ -24,6 +24,7 @@
                 'content' => $value,
                 'user_id' => 1
             ]);
+            header('location: /notes');
             $value = '';
 
         }
