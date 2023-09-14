@@ -20,7 +20,8 @@
         '/about' => "controllers/about.php",
         '/notes' => "controllers/notes.php",
         '/contact' => "controllers/contact.php",
-        '/note' =>"controllers/note.php"
+        '/note' =>"controllers/note.php",
+        '/notes/create' => "controllers/note-create.php"
     ];
 
     if(array_key_exists($uri, $routes)){
