@@ -11,7 +11,10 @@
     $routeObj->add('/notes','GET',basePath("controllers/notes/index.php"));
     $routeObj->add('/contact','GET',basePath("controllers/contact.php"));
     $routeObj->add('/note','GET',basePath("controllers/notes/show.php"));
+    $routeObj->add('/note/edit','GET',basePath("controllers/notes/edit.php"));
     $routeObj->add('/note','DELETE',basePath("controllers/notes/destroy.php"));
+    $routeObj->add('/note','PATCH',basePath("controllers/notes/update.php"));
+
     $routeObj->add('/notes/create','GET',basePath("controllers/notes/create.php"));
     $routeObj->add('/notes/create','POST',basePath("controllers/notes/create.php"));
 
