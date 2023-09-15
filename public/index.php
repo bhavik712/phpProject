@@ -11,7 +11,7 @@
         require basePath("{$class}.php");
     });
 
-
+    require basePath("core/dbContainer.php");
 
     require basePath("routes.php");
 

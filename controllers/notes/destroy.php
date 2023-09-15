@@ -1,9 +1,9 @@
 <?php
     
     use core\Database;
+    use core\App;
     $id = $_GET['id'];
-    $config = require basePath('config.php');
-    $db = new Database($config,'root','admin@123',PDO::FETCH_ASSOC);
+    $db = App::resolve(Database::class);
 
 
     $result = $db->executeQuery("select user_id from Notes where note_id = :id",[ 'id' => $_POST['id'] ])->fetch();

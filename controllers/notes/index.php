@@ -1,9 +1,9 @@
 <?php
     // $heading = "Notes";
     use core\Database;
-    
-    $config = require basePath('config.php');
-    $db = new Database($config,'root','admin@123',PDO::FETCH_ASSOC);
+    use core\App;
+  
+    $db=App::resolve(Database::class);
 
     $notes = $db->executeQuery("select * from Notes where user_id=1")->fetchAll();
    

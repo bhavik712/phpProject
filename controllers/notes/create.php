@@ -1,13 +1,13 @@
 <?php
     use core\Database;
     use core\Validator;
-    // $heading = "Create Note";
+    use core\App;
 
-    // require basePath("core/Validator.php");
-    $config = require basePath('config.php');
-    $db = new Database($config,'root','admin@123',PDO::FETCH_ASSOC);
+
+    $db = App::resolve(Database::class);
 
     $errors = [];
+    $value='';
 
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $value = trim($_POST['content']);

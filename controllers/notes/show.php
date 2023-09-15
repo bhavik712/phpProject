@@ -1,9 +1,10 @@
 <?php
-    
+    use core\App;
     use core\Database;
     $id = $_GET['id'];
-    $config = require basePath('config.php');
-    $db = new Database($config,'root','admin@123',PDO::FETCH_ASSOC);
+    
+    $db=App::resolve(Database::class);
+
 
     $note = $db->executeQuery("select Notes.note_id,Notes.content,Users.name, Users.email, Users.user_id from Notes Join Users ON Notes.user_id = Users.user_id where Notes.note_id = :id ", ['id' => $id])->fetch();
         //we can put here authorization that the notes only created by current user is only can be seen
