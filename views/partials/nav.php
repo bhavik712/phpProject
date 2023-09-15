@@ -10,6 +10,7 @@
                   <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                   <a href="/" class="<?php applyNavStyle('/') ?> rounded-md px-3 py-2 text-sm font-medium" >Home</a>
                   <a href="/about" class=" <?php applyNavStyle('/about') ?> rounded-md px-3 py-2 text-sm font-medium" >About</a>
+                  <a href="/notes" class=" <?php applyNavStyle('/notes') ?> rounded-md px-3 py-2 text-sm font-medium" >Notes</a>
                   <a href="/contact" class="<?php applyNavStyle('/contact') ?> rounded-md px-3 py-2 text-sm font-medium">Contact</a>
                 </div>
               </div>
