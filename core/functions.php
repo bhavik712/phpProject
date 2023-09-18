@@ -17,4 +17,13 @@ function dd($value){
     die();
 }
 
+function basePath($path){
+    return BASE_PATH.$path; 
+};
+
+function loadView($path, $attributes){
+    extract($attributes);
+    require basePath("views/".$path);
+}
+
 ?>

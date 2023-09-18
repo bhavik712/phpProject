@@ -1,16 +1,18 @@
 <?php
-    $heading = "Create Note";
+    use core\Database;
+    use core\Validator;
+    use core\App;
 
-    require "Validator.php";
-    $config = require('config.php');
-    $db = new Database($config,'root','admin@123',PDO::FETCH_ASSOC);
 
-   
+    $db = App::resolve(Database::class);
+
+    $errors = [];
+    $value='';
 
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $value = trim($_POST['content']);
         // dd($value);
-        $errors = [];
+        
 
         if(!Validator::validateData($value,1,20)){
             $errors['content'] = 'A Note who can have 20 chars is required';
@@ -22,6 +24,8 @@
                 'content' => $value,
                 'user_id' => 1
             ]);
+            header('location: /notes');
+            exit();
             $value = '';
 
         }
@@ -39,5 +43,11 @@
  
     // dd($_SERVER['REQUEST_METHOD']);
 
-    require "views/note-create.view.php"
+    // require "views/note-create.view.php"
+
+    loadView("notes/create.view.php",[
+        'heading' => 'Create New Note',
+        'value' => $value,
+        'errors' => $errors
+    ]);
 ?>
