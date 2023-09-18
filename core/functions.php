@@ -26,22 +26,10 @@ function loadView($path, $attributes){
     require basePath("views/".$path);
 }
 
-function login($email){
-    $_SESSION['logged_in'] = true;
-
-    $_SESSION['user'] = [
-        'email' => $email
-    ];
-
-    session_regenerate_id(true);
+function redirects($path){
+    // dd('hi');
+    header("location:{$path}");
+    exit();
 }
 
-function logout(){
-    $_SESSION = [];
-    session_destroy();
-
-    $params = session_get_cookie_params();
-
-    setcookie('PHPSESSID','',time()-3600, $params['path'],$params['domain'],$params['secure'], $params['httponly']);
-}
 ?>
