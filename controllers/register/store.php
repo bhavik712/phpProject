@@ -44,11 +44,14 @@ if(!empty($result)){
 
 $db->executeQuery('insert into Notesuser (email, password) values (:email, :password)', [
     'email'=> $email,
-    'password'=> $password
+    'password'=> password_hash($password, PASSWORD_DEFAULT)
 ]);
 
 // session_start();
-$_SESSION['logged_in'] = true;
+
+login($email);
+
+
 
 // dd($_SESSION);
 

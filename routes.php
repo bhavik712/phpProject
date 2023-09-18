@@ -20,6 +20,11 @@
 
     $routeObj->add('/register','GET',basePath("controllers/register/create.php"),'guest');
     $routeObj->add('/register','POST',basePath("controllers/register/store.php"),'guest');
+
+    $routeObj->add('/login','GET',basePath("controllers/sessions/create.php"),'guest');
+    $routeObj->add('/login','POST',basePath("controllers/sessions/store.php"),'guest');
+
+    $routeObj->add('/logout','GET',basePath("controllers/sessions/destroy.php"),'auth');
     
     // dd($routeObj);
     $routeObj->route($uri,$method);
