@@ -15,6 +15,9 @@
 
     require basePath("routes.php");
 
+    unset($_SESSION['_flash']['errors']);
+    unset($_SESSION['_flash']['email']);
+
   
     
 

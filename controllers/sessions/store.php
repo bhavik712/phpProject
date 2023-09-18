@@ -22,13 +22,20 @@ if($form->validateForm($email, $password)){
         redirects('/');
     };
 
-    // $form->addErrors('password', 'Invalid Email Id or Password'); 
+    $form->addErrors('password', 'Invalid Email Id or Password'); 
 };
 
-return loadView("sessions/create.view.php",[ 
-    'heading' => 'Log In',
-    'errors' => $form->errors(),
-]);
+
+$_SESSION['_flash']['errors'] = $form->errors();
+$_SESSION['_flash']['email'] = $email;
+
+
+return redirects('/login');
+
+// return loadView("sessions/create.view.php",[ 
+//     'heading' => 'Log In',
+//     'errors' => $form->errors(),
+// ]);
 
 
 ?>
