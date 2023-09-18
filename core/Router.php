@@ -1,17 +1,23 @@
 <?php
     namespace core;
+
+    use core\middleware\Auth;
+    use core\middleware\Guest;
+    use core\middleware\Middleware;
+
     class Router{
         protected $routes = [];
 
-        public function add($uri, $method, $controller){
-            $this->routes[] = compact('uri','method','controller');
+        public function add($uri, $method, $controller, $middleware=''){
+            $this->routes[] = compact('uri','method','controller','middleware');
+            // dd($this->routes);
         }
 
         public function route($uri, $method){
             
             foreach($this->routes as $route){
                 if($route['uri'] === $uri && $route['method'] === $method){
-                    // dd($route);
+                    Middleware::resolve($route['middleware']);
                     return require $route['controller'];
                 }
             };

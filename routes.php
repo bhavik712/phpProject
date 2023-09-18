@@ -8,17 +8,19 @@
 
     $routeObj->add('/','GET',basePath("controllers/index.php"));
     $routeObj->add('/about','GET',basePath("controllers/about.php"));
-    $routeObj->add('/notes','GET',basePath("controllers/notes/index.php"));
+    $routeObj->add('/notes','GET',basePath("controllers/notes/index.php"),'auth');
     $routeObj->add('/contact','GET',basePath("controllers/contact.php"));
-    $routeObj->add('/note','GET',basePath("controllers/notes/show.php"));
-    $routeObj->add('/note/edit','GET',basePath("controllers/notes/edit.php"));
-    $routeObj->add('/note','DELETE',basePath("controllers/notes/destroy.php"));
-    $routeObj->add('/note','PATCH',basePath("controllers/notes/update.php"));
+    $routeObj->add('/note','GET',basePath("controllers/notes/show.php",'auth'));
+    $routeObj->add('/note/edit','GET',basePath("controllers/notes/edit.php"),'auth');
+    $routeObj->add('/note','DELETE',basePath("controllers/notes/destroy.php"),'auth');
+    $routeObj->add('/note','PATCH',basePath("controllers/notes/update.php"),'auth');
 
-    $routeObj->add('/notes/create','GET',basePath("controllers/notes/create.php"));
-    $routeObj->add('/notes/create','POST',basePath("controllers/notes/create.php"));
+    $routeObj->add('/notes/create','GET',basePath("controllers/notes/create.php"),'auth');
+    $routeObj->add('/notes/create','POST',basePath("controllers/notes/create.php"),'auth');
 
+    $routeObj->add('/register','GET',basePath("controllers/register/create.php"),'guest');
+    $routeObj->add('/register','POST',basePath("controllers/register/store.php"),'guest');
     
-    
+    // dd($routeObj);
     $routeObj->route($uri,$method);
 ?>
